@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light');
@@ -19,16 +19,16 @@ const Navbar = () => {
         document.querySelector('html').setAttribute('data-theme', changeTheme);
     }, [theme])
     return (
-        <nav className="sticky z-10 top-0 left-0 shadow-lg bg-gradient-to-r from-[#dff9fb] via-blue-300 to-[#c7ecee] bg-300% text-transparent animate-gradient">
+        <nav className="sticky z-10 top-0 left-0 shadow-lg bg-gradient-to-r from-[#dff9fb] via-blue-400 to-[#c7ecee] bg-300% text-transparent animate-gradient">
             <div className="navbar items-center container mx-auto">
                 <div className="flex-1">
-                    <Link className="text-[#e84393] text-2xl font-bold">Byte<span className="text-[#30336b]">Blaze</span></Link>
+                    <Link to='/' className="text-[#e84393] text-2xl font-bold">Byte<span className="text-[#30336b]">Blaze</span></Link>
                 </div>
                 <div className="flex-none">
-                    <ul className="menu menu-horizontal px-1 text-[#30336b]">
-                        <li><a className="font-semibold text-lg">Home</a></li>
-                        <li><a className="font-semibold text-lg">Blogs</a></li>
-                        <li><a className="font-semibold text-lg">Bookmarks</a></li>
+                    <ul className="menu menu-horizontal px-1 text-[#30336b] hidden md:flex gap-5">
+                        <NavLink to="/" className="font-semibold text-lg">Home</NavLink>
+                        <NavLink to="/blogs" className="font-semibold text-lg">Blogs</NavLink>
+                        <NavLink to="/bookmarks" className="font-semibold text-lg">Bookmarks</NavLink>
                     </ul>
                     <div className="ml-4">
                         <label className="cursor-pointer grid place-items-center">
